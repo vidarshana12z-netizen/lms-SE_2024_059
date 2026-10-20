@@ -5,9 +5,6 @@ import PACKAGE_NAME.lms.model.DVD;
 
 public class main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        System.out.println("Hello worldd!");
-
 
         Book b = new Book("B001", "Clean Code", "Robert C. Martin");
         DVD d = new DVD("D001", "Intro to Algorithms", 120);

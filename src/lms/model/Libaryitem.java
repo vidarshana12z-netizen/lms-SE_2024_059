@@ -1,9 +1,6 @@
 package PACKAGE_NAME.lms.model;
 
-
 public class Libaryitem {
-
-
 
     public abstract class LibraryItem {
         private String id;
@@ -11,15 +8,16 @@ public class Libaryitem {
         private boolean isBorrowed;
 
         public LibraryItem(String id, String title) {
-            // TODO: call setId(id) and setTitle(title) - do NOT assign directly
-            // TODO: set isBorrowed to false
+           this.id = id;
+           this.title = title;
         }
 
-        // TODO: getters - getId(), getTitle(), isBorrowed()
         public void setId(String id) {
-            // TODO: if id is null or blank, throw
-            // new IllegalArgumentException("Id cannot be blank")
-            // TODO: otherwise assign it
+
+            if(id == null){
+                return;
+            }
+            this.id = id;
         }
 
         // TODO: setTitle(String title) - same pattern, message "Title cannot be blank"
