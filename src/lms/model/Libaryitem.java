@@ -1,44 +1,61 @@
 package PACKAGE_NAME.lms.model;
 
 
-public class Libaryitem {
+public abstract class Libaryitem {
 
 
 
-    public abstract class LibraryItem {
         private String id;
         private String title;
         private boolean isBorrowed;
 
-        public LibraryItem(String id, String title) {
-            // TODO: call setId(id) and setTitle(title) - do NOT assign directly
-            // TODO: set isBorrowed to false
+        public Libaryitem(String id, String title) {
+            setId(id);
+            setTitle(title);
+            isBorrowed = false;
         }
 
-        // TODO: getters - getId(), getTitle(), isBorrowed()
-        public void setId(String id) {
-            // TODO: if id is null or blank, throw
-            // new IllegalArgumentException("Id cannot be blank")
-            // TODO: otherwise assign it
+        public String getId(){
+            return id;
         }
 
-        // TODO: setTitle(String title) - same pattern, message "Title cannot be blank"
-        public void borrowItem() { /* TODO */ }
+        public String getTitle(){
+            return title;
+        }
+        public boolean getIsBorrowed(){
+            return isBorrowed;
+        }
 
-        public void returnItem() { /* TODO */ }
+
+        public void setId(String id) throws IllegalArgumentException {
+            if(id.trim().isEmpty()){
+                throw new IllegalArgumentException("ID Cannot be Blank");
+
+            }else{
+                this.id = id;
+            }
+        }
+
+        public void  setTitle(String title) throws IllegalArgumentException{
+            if(title.trim().isEmpty()){
+                throw new IllegalArgumentException("Title Cannot be Blank");
+            }
+        }
+
+        public void borrowItem() { isBorrowed = true; }
+
+        public void returnItem() { isBorrowed = false;}
 
         public double calculateLateFee(int daysLate) {
-            // TODO: return daysLate * 10.0 (the default rate)
-            return 0;
+            return daysLate * 10.0;
         }
 
         @Override
         public String toString() {
-            // TODO: return readable text about this item, e.g.
-            // Book{id='B001', title='Clean Code', borrowed=false}
+            System.out.println("Book{Id="+id+", Title='"+title+"', Borrowed="+isBorrowed);
 
             return null;
         }
     }
-}
+
 

@@ -3,16 +3,25 @@ package PACKAGE_NAME.lms.model;
 public class Book extends Libaryitem {
     private String author;
     public Book(String id, String title, String author) {
-        // TODO: super(id, title); <- must be the first line
-        // TODO: setAuthor(author);
+       super(id,title);
+       setAuthor(author);
     }
 
-    public boolean calculateLateFee(int i) {
+    public void setAuthor(String author){
+        if(author.trim().isEmpty()){
+            throw new IllegalArgumentException("Author cant be Empty ");
+        }else{
+            this.author = author;
+        }
 
-        return false;
     }
-    // TODO: getAuthor()
-    // TODO: setAuthor(String author) - reject null/blank with
-    // IllegalArgumentException("Author cannot be blank")
+    public String getAuthor(){
+        return author;
+    }
+
+    public double calculateLateFee(int daysLate) {
+
+        return super.calculateLateFee(daysLate);
+    }
 }
 
